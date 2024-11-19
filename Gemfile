@@ -32,6 +32,8 @@ gem "solid_cable"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
+gem "friendly_id", "~> 5.5.0"
+gem "devise"
 
 # Deploy this application anywhere as a Docker container [https://kamal-deploy.org]
 gem "kamal", require: false
@@ -60,7 +62,7 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-  gem 'ruby-lsp'
+  gem "ruby-lsp"
   gem "rubocop", "~> 1.68", require: false
   gem "rubocop-shopify", require: false
 end

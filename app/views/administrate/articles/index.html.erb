@@ -2,6 +2,17 @@
 
 <% content_for :title, "Articles" %>
 
+
+<p>
+  Bem vindo <%= current_admin.email %>
+</p>
+
+<%= link_to destroy_admin_session_path, data: { turbo_method: :delete } do %>
+Fazer Logoff
+<% end %>
+
+
+
 <h1>Articles</h1>
 
 <div id="articles">
