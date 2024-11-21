@@ -269,7 +269,7 @@ GEM
       rubocop-rails
     rubocop-shopify (2.15.1)
       rubocop (~> 1.51)
-    ruby-lsp (0.21.3)
+    ruby-lsp (0.22.0)
       language_server-protocol (~> 3.17.0)
       prism (>= 1.2, < 2.0)
       rbs (>= 3, < 4)
