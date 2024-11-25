@@ -1,6 +1,19 @@
 <div>
-    <p>
-        <strong>Title:</strong>
-        <%= article.title %>
-    </p>
+  <p>
+    <strong>Title:</strong>
+    <%= article.title %>
+  </p>
+
+  <p>
+    <strong>Date:</strong>
+    <%= I18n.l(article.created_at, format: :only_date) %>
+  </p>
+
+  <p>
+    <strong>Cover Image:</strong>
+    <% if article.cover_image.attached? %>
+      <%= image_tag article.cover_image.variant(resize_to_limit: [100, 100]) %>
+      <%= image_tag article.cover_image.variant(resize_to_limit: [200, 200]) %>
+    <% end %>
+  </p>
 </div>

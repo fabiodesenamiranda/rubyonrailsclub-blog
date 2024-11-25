@@ -18,7 +18,23 @@
 
   <div>
     <%= form.label :body, style: "display: block" %>
-    <%= form.textarea :body %>
+    <%= form.text_area :body %>
+  </div>
+
+  <div>
+    <%= form.label :cover_image, style: "display: block" %>
+    <%= form.file_field :cover_image %>
+  
+  <div id=<%= dom_id(article) %>>
+        <% if article.cover_image.attached? %>
+      <%= image_tag article.cover_image.variant(resize_to_limit: [100, 100])%>
+
+
+      <%= link_to "Remover", 
+      destroy_cover_image_administrate_article_path(article), 
+      data: { "turbo-confirm": "Tem certeza?", "turbo-method": :delete } if article.cover_image.attached? %>
+    <% end %>
+  </div>
   </div>
 
   <div>
