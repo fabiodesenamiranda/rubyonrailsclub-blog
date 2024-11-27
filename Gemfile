@@ -57,6 +57,6 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
   gem "ruby-lsp"
-  gem "rubocop", "~> 1.68", require: false
+  gem "rubocop", "~> 1.69", require: false
   gem "rubocop-shopify", require: false
 end
