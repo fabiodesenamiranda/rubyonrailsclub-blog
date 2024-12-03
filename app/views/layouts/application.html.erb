@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <>
+    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,31 +19,38 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;600;800&display=swap"
       rel="stylesheet">
 
-    
-    
-    <%= yield :head %>
-
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-
-    <h1>LAYOUT PUBLICO</h1>
-
-     <%= image_tag 'logo.svg' %>
-     <%= image_tag 'avatar/man-1.svg' %>
-     
-
+    <%= render "layouts/shared/application/header" %>
     <%= yield %>
-    <script src="./js/menu.js"></script>
-    <script src="./js/posts-grid.js"></script>
+    <%= render "layouts/shared/application/footer" %>
 
     <%= javascript_include_tag "menu", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "posts-grid", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "jquery/jquery1.min", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "slick/slick.min", "data-turbo-track": "reload" %>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    
+    <% if notice %>
+      <script>
+        Toastify({
+          text: "<%= notice %>",
+          duration: 3000,
+          style: {
+            background: "green",
+          }
+        }).showToast();
+      </script>
+    <% end %>
     
   </body>
 </html>
+
+

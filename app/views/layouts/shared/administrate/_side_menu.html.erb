@@ -1,0 +1,44 @@
+<aside class="admin-nav" id="adminMenu">
+  <div class="row row-menu-button">
+    <%= link_to destroy_admin_session_path, data: { turbo_method: :delete }, class: "logout" do %>
+      <%= image_tag "icons/white/exit.svg", alt: "exit" %>
+    <% end %>
+
+    <a href="#" id="adminMenuButton">
+      <%= image_tag "icons/white/menu.svg", alt: "menu" %>
+    </a>
+  </div>
+  <div class="row center">
+    <%= link_to root_path, class: "logo" do %>
+      <%= image_tag "logo.svg", alt: "logo" %>
+    <% end %>
+  </div>
+  <div class="row center column">
+    <h3 class="user-name">Fabio Sena</h3>
+    <h4 class="user-email">fabio@gmail.com</h4>
+  </div>
+  <div class="row">
+    <nav class="menu">
+      <%= link_to administrate_articles_path, class: active_link?("articles") do %>
+        <div class="icon">
+          <%= image_tag "icons/white/posts.svg", alt: "artigos" %>
+        </div>
+        <label for="#">Artigos</label>
+      <% end %>
+
+      <%= link_to administrate_authors_path, class: active_link?("authors") do %>
+        <div class="icon">
+          <%= image_tag "icons/white/authors.svg", alt: "autores" %>
+        </div>
+        <label for="#">Autores</label>
+      <% end %>
+
+      <%= link_to administrate_categories_path, class: active_link?("categories") do %>
+        <div class="icon">
+          <%= image_tag "icons/white/categories.svg", alt: "categorias" %>
+        </div>
+        <label for="#">Categorias</label>
+      <% end %>
+    </nav>
+  </div>
+</aside>

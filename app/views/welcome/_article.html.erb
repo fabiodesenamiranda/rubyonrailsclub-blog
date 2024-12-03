@@ -1,19 +1,15 @@
-<div>
-  <p>
-    <strong>Title:</strong>
-    <%= article.title %>
-  </p>
+<a href="post.html" class="item"></a>
+  <%= image_tag(cover_image_fallback(article), class: "item-image", alt: "article image") %>
 
-  <p>
-    <strong>Date:</strong>
-    <%= I18n.l(article.created_at, format: :only_date) %>
-  </p>
-
-  <p>
-    <strong>Cover Image:</strong>
-    <% if article.cover_image.attached? %>
-      <%= image_tag article.cover_image.variant(resize_to_limit: [100, 100]) %>
-      <%= image_tag article.cover_image.variant(resize_to_limit: [200, 200]) %>
-    <% end %>
-  </p>
-</div>
+  <div class="item-row">
+    <div class="item-category">Backend</div>
+    <div class="item-comments">25</div>
+  </div>
+  <div class="item-row">
+    <div class="item-title"><%= article.title %></div>
+  </div>
+  <div class="item-row">
+    <div class="item-author">Jackson Pires</div>
+    <div class="item-date">15 de setembro</div>
+  </div>
+</a>

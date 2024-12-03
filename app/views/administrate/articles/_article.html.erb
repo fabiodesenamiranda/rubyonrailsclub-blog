@@ -1,19 +1,20 @@
-<div>
-  <p>
-    <strong>Title:</strong>
-    <%= article.title %>
-  </p>
+<tr>
+  <td><%= l(article.created_at, format: :short) %></td>
+  <td><%= article.category.present? ? article.category.name : "Sem categoria" %></td>
+  <td><%= article.title %></td>
+  <td>
+    <div class="icons">
+      <%= link_to edit_administrate_article_path(article), title: "Editar", alt: "edit" do %>
+        <%= image_tag "icons/gray/edit.svg" %>
+      <% end %>
 
-  <p>
-    <strong>Date:</strong>
-    <%= I18n.l(article.created_at, format: :only_date) %>
-  </p>
+      <%= link_to [:administrate, article], title: "Visualizar", alt: "eye" do %>
+        <%= image_tag "icons/gray/eye.svg" %>
+      <% end %>
 
-  <p>
-    <strong>Cover Image:</strong>
-    <% if article.cover_image.attached? %>
-      <%= image_tag article.cover_image.variant(resize_to_limit: [100, 100]) %>
-      <%= image_tag article.cover_image.variant(resize_to_limit: [200, 200]) %>
-    <% end %>
-  </p>
-</div>
+      <%= button_to [:administrate, article], title: "Apagar", class: "button-transparent", alt: "close", data: { turbo: false }, method: :delete do %>
+        <%= image_tag "icons/gray/close.svg" %>
+      <% end %>
+    </div>
+  </td>
+</tr>

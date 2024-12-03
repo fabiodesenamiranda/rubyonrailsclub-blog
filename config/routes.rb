@@ -1,10 +1,15 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  devise_for :users
   devise_for :admins
   get "welcome/index"
 
+
+  resources :articles
+
   namespace :administrate do
+    get "/" => "dashboards#index"
     resources :articles do
       member do
         delete :destroy_cover_image
